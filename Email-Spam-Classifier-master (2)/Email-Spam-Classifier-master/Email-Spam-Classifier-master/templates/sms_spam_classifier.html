@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>sms Spam Classifier</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='spamclassifier.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat; 
+            background-position: center center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='ble.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat; 
+            background-position: center center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+    <div class="container">
+        <h2>SMS Spam Classifier</h2>
+        <form method="POST" action="{{ url_for('sms_spam_classifier') }}">
+            <label for="sms_body">Enter the message you've got:</label><br>
+            <textarea id="sms_body" name="sms_body" rows="10" cols="30" placeholder="Enter the Text or message here"></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+        {% if classification %}
+        <h3>Result: {{ classification }}</h3>
+        {% endif %}
+        <div class="link">
+            <a href="{{ url_for('logout') }}">Log-Out</a>
+        </div>
+    </div>
+</body>
+</html>
